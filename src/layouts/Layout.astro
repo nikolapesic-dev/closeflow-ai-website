@@ -1,21 +1,27 @@
 ---
 import '../styles/global.css';
-import { description } from '../config';
-interface Props { title?: string }
-const { title = 'CLOSEFLOW AI — More coaching. Less chasing DMs.' } = Astro.props;
+import { description as defaultDescription } from '../config';
+interface Props { title?: string; description?: string; noindex?: boolean }
+const { title = 'CLOSEFLOW AI — AI Appointment Setter Concept for Fitness Coaches', description = defaultDescription, noindex = false } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
-const image = Astro.site ? new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/social.svg`, Astro.site) : undefined;
+const image = Astro.site ? new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/social.png`, Astro.site) : undefined;
 ---
 <!doctype html>
 <html lang="en"><head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title><meta name="description" content={description} />
   <meta name="theme-color" content="#17382e" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} />
   {canonical && <link rel="canonical" href={canonical} />}
   <meta property="og:type" content="website" /><meta property="og:title" content={title} />
   <meta property="og:description" content={description} /><meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="CLOSEFLOW AI" />
   {canonical && <meta property="og:url" content={canonical} />}
   {image && <meta property="og:image" content={image} />}
+  {image && <><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="CLOSEFLOW AI — prelaunch appointment-setting concept for online fitness coaches" /></>}
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} />
+  {image && <meta name="twitter:image" content={image} />}
 </head><body><a class="skip-link" href="#main">Skip to content</a><slot /></body></html>
