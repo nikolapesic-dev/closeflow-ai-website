@@ -1,0 +1,15 @@
+---
+import BookingLink from './BookingLink.astro';
+import { pageUrl } from '../config';
+const links = [ ['Planned workflow', '#workflow'], ['Scripted preview', '#demo'], ['FAQs', '#faq'] ];
+---
+<header class="header"><div class="container header-inner">
+ <a href={pageUrl()} class="brand" aria-label="CLOSEFLOW AI home"><span class="brand-mark" aria-hidden="true">↗</span>CLOSEFLOW<span class="brand-ai">AI</span></a>
+ <nav class="desktop-nav" aria-label="Main navigation">{links.map(([text, hash]) => <a href={`${pageUrl()}${hash}`}>{text}</a>)}</nav>
+ <div class="header-actions"><BookingLink small /><details class="mobile-menu"><summary aria-label="Site navigation"><span aria-hidden="true">☰</span></summary><nav aria-label="Mobile navigation">{links.map(([text, hash]) => <a href={`${pageUrl()}${hash}`}>{text}</a>)}</nav></details></div>
+</div></header>
+<script>
+ document.querySelectorAll<HTMLAnchorElement>('.mobile-menu nav a').forEach(link => {
+   link.addEventListener('click', () => link.closest('details')?.removeAttribute('open'));
+ });
+</script>
