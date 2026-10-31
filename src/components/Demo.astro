@@ -1,0 +1,27 @@
+---
+const steps = [
+ { label: 'Understand the goal', title: 'Start with their story.', lead: 'Hey! I saw your coaching post. I want to get stronger but I’m struggling to stay consistent.', reply: 'Thanks for reaching out! What does your training look like at the moment, and what would you like to change?', goal: 'Build strength', timing: 'Not discussed', status: 'Learning about the lead', note: 'Ask one useful question at a time. Keep the conversation natural.' },
+ { label: 'Explore the fit', title: 'Qualify with context.', lead: 'I train twice a week. I’d like a structured plan and accountability, ideally starting next month.', reply: 'That’s helpful. Our example programme combines a training plan with weekly check-ins. Are you looking for that kind of ongoing support?', goal: 'Strength + consistency', timing: 'Next month', status: 'Exploring coaching fit', note: 'Follow the coach’s approved offer and qualification criteria.' },
+ { label: 'Offer a next step', title: 'Make the handoff clear.', lead: 'Yes, that sounds like what I need. Could I speak with the coach first?', reply: 'Absolutely. The next step would be a consultation to talk through your goals and see whether coaching is a fit. Would you like the booking link?', goal: 'Structured coaching', timing: 'Next month', status: 'Consultation requested', note: 'Offer a next step without pressure. The coach makes the final decision.' },
+];
+---
+<section id="demo" class="section demo-section">
+ <div class="section-heading"><div><p class="eyebrow">THE CONVERSATION, REIMAGINED</p><h2>A little less back-and-forth.<br />A clearer next step.</h2></div><p>Explore the proposed experience from first message to consultation. All names, messages and statuses below are fictional.</p></div>
+ <div class="demo-controls" role="group" aria-label="Choose a simulated conversation stage">{steps.map((step, i) => <button type="button" data-step={i} aria-pressed={i === 0} aria-controls="demo-stage"><span>0{i + 1}</span>{step.label}<span aria-hidden="true">↗</span></button>)}</div>
+ <div class="workspace"><div class="workspace-bar"><span><b class="mini-mark">↗</b> CLOSEFLOW <span class="muted">/ Coaching workspace</span></span><span class="sample-badge">SIMULATED DEMO</span></div>
+ <div class="workspace-body"><aside class="inbox"><p class="small-label">EXAMPLE INBOX</p><div class="lead selected"><span class="avatar">JL</span><div><b>Jordan Lee</b><small>Interested in coaching</small></div><span class="lead-dot"></span></div><div class="lead"><span class="avatar neutral">AT</span><div><b>Alex Taylor</b><small>Example conversation</small></div></div><div class="inbox-note">Built around your<br /><strong>coaching playbook.</strong></div></aside>
+ <div id="demo-stage" class="conversation" aria-live="polite" aria-atomic="true"><div class="conversation-heading"><div><b>Jordan Lee</b><small>Fictional prospective client</small></div><span class="outline-pill">Inbound enquiry</span></div>
+ {steps.map((step,i) => <div class="stage" data-panel={i} hidden={i !== 0}><p class="chat-label">JORDAN · EXAMPLE MESSAGE</p><p class="bubble incoming">{step.lead}</p><p class="chat-label agent-label">CLOSEFLOW AI · EXAMPLE REPLY</p><p class="bubble outgoing">{step.reply}</p><div class="playbook-note"><span aria-hidden="true">✧</span><p>{step.note}</p></div></div>)}
+ <p class="demo-disclaimer">Scripted preview. No live AI, Instagram connection or booking is running.</p></div>
+ <aside class="context"><p class="small-label">LEAD CONTEXT</p><h3>The details that matter.</h3>{steps.map((step,i) => <div data-context={i} hidden={i !== 0}><dl><dt>Goal</dt><dd>{step.goal}</dd><dt>Start timeline</dt><dd>{step.timing}</dd><dt>Conversation status</dt><dd class="status">{step.status}</dd></dl></div>)}<div class="human-note"><span aria-hidden="true">◎</span><b>Human judgement stays central.</b><p>Sensitive questions and exceptions should go to you.</p></div></aside></div></div>
+ <noscript><p class="fine-print">The first example is shown. Enable JavaScript to explore the other two stages.</p></noscript>
+</section>
+<script>
+ const buttons = document.querySelectorAll<HTMLButtonElement>('[data-step]');
+ buttons.forEach(button => button.addEventListener('click', () => {
+   const active = button.dataset.step;
+   buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+   document.querySelectorAll<HTMLElement>('[data-panel]').forEach(panel => { panel.hidden = panel.dataset.panel !== active; });
+   document.querySelectorAll<HTMLElement>('[data-context]').forEach(panel => { panel.hidden = panel.dataset.context !== active; });
+ }));
+</script>
