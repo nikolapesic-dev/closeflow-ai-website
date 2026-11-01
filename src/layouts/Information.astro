@@ -1,0 +1,18 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { pageUrl } from '../config';
+interface Props { title: string; description: string; legal?: boolean }
+const {title, description, legal = true} = Astro.props;
+---
+<Layout title={`${title} — CLOSEFLOW AI`} description={description}>
+ <Header />
+ <main id="main" class="container legal-content">
+  <a class="legal-back" href={pageUrl()}>← Back to CLOSEFLOW AI</a>
+  <p class="eyebrow">CLOSEFLOW AI · PRELAUNCH</p><h1>{title}</h1>
+  {legal && <p class="legal-meta">Effective date: 1 November 2026</p>}
+  <slot />
+ </main>
+ <Footer />
+</Layout>
