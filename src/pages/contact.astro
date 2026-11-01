@@ -1,0 +1,14 @@
+---
+import Information from '../layouts/Information.astro';
+import BookingLink from '../components/BookingLink.astro';
+import { pageUrl } from '../config';
+---
+<Information title="Contact" description="Contact Nikola Pešić about the CLOSEFLOW AI prelaunch concept, a free 15-minute call or a privacy request." legal={false}>
+ <p>CLOSEFLOW AI is a prelaunch project operated by <strong>Nikola Pešić</strong>, an individual based in <strong>Serbia</strong>. CLOSEFLOW AI is a project name, not a registered company. The AI agent has not been built and no software access is available.</p>
+ <h2>Email the founder</h2><p><a href="mailto:nikolapesic878@gmail.com">nikolapesic878@gmail.com</a></p>
+ <p>Use this address for project questions, scheduling help and privacy requests. Please do not include passwords, private client messages or health information.</p>
+ <h2>Discuss your coaching workflow</h2><p>Book a free 15-minute prelaunch call. We can discuss the concept and your requirements. This is not a live-product demonstration, purchase or promise of product access. Calls are held through Zoom; meeting details are provided with the booking confirmation.</p>
+ <BookingLink />
+ <p class="booking-note">The booking link opens Calendly. You can cancel or reschedule using your confirmation or by emailing the founder. Prelaunch calls are not recorded or transcribed by the operator.</p>
+ <p>See the <a href={pageUrl('privacy/')}>Privacy Policy</a> for data handling and the <a href={pageUrl('terms/')}>Terms of Service</a> for the scope of this prelaunch website.</p>
+</Information>
