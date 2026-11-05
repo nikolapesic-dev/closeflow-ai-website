@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Demo from '../components/Demo.astro';
+import PhonePreview from '../components/PhonePreview.astro';
 import { demoUrl } from '../config';
 import BookingLink from '../components/BookingLink.astro';
 import Header from '../components/Header.astro';
@@ -19,7 +20,7 @@ const faqs = [
  <Header />
  <main id="main">
  <section class="hero container"><div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> FITNESS COACHES · PRELAUNCH CONCEPT</p><h1>More coaching.<br />Less chasing <span class="serif">DMs.</span></h1><p class="hero-description">Your next coaching client starts with a conversation. Make it a better one.</p><p class="hero-detail">We’re exploring an AI appointment setter for inbound coaching enquiries, shaped around your playbook. We are testing a local, rules-based prototype with fictional conversations. The AI product and live integrations are not available. Explore the scripted concept or discuss your workflow with the founder.</p><div class="hero-actions"><BookingLink /><a class="text-link" href="#demo"><span class="play-icon" aria-hidden="true">▶</span> View scripted preview</a></div><p class="fine-print">For US & UK coaches. Local prototype in testing. No product access available.</p></div>
- <div class="hero-art" aria-label="Illustration of a proposed coaching enquiry workflow"><div class="art-grid"></div><div class="art-top"><span class="small-label">YOUR COACHING. YOUR VOICE.</span><span aria-hidden="true">✳</span></div><div class="message-card"><span class="avatar">JL</span><div><small>NEW ENQUIRY · FICTIONAL EXAMPLE</small><p>“I’m ready to get stronger.<br />Where do I start?”</p></div><span aria-hidden="true">↗</span></div><div class="flow-line" aria-hidden="true"><span></span><b>✧</b><span></span></div><div class="flow-card"><div class="flow-card-heading"><span class="mini-mark">↗</span><b>A conversation with direction.</b></div><div class="flow-row"><span>01</span><b>Understand their goals</b><span aria-hidden="true">✓</span></div><div class="flow-row"><span>02</span><b>Explore coaching fit</b><span aria-hidden="true">✓</span></div><div class="flow-row final-row"><span>03</span><b>Offer the next step</b><span aria-hidden="true">↗</span></div></div><div class="art-bottom"><span>ILLUSTRATIVE WORKFLOW</span><span>No live automation</span></div></div>
+ <PhonePreview />
  </section>
  <div class="audience-strip"><div class="container"><span>MADE FOR THE WAY YOU COACH</span><p>Independent coaches</p><i aria-hidden="true">✳</i><p>Online programmes</p><i aria-hidden="true">✳</i><p>Small coaching teams</p></div></div>
  <section id="workflow" class="section container"><div class="section-heading"><div><p class="eyebrow">LESS ADMIN. MORE INTENTION.</p><h2>You bring the expertise.<br />Give every enquiry a direction.</h2></div><p>Between check-ins, programming and client calls, your inbox can become another workout. Here’s the workflow we’re building towards.</p></div><div class="workflow-grid">{[
