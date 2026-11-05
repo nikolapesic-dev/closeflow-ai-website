@@ -1,0 +1,33 @@
+---
+import BookingLink from './BookingLink.astro';
+import { pageUrl } from '../config';
+const topics = [
+ ['01', 'Map your DM process', 'Talk through how enquiries arrive, which questions repeat and where conversations get stuck.'],
+ ['02', 'Discuss your needs', 'Explore your offer, qualification questions and the points where you want a person involved.'],
+ ['03', 'Assess the proposed fit', 'Discuss whether the planned concept could suit your workflow, including its current limits.'],
+];
+---
+<section id="contact" class="container section founder-section" aria-labelledby="founder-title">
+ <div class="founder-card"><span class="founder-monogram" aria-hidden="true">NP<span>↗</span></span><div><p class="eyebrow">MEET THE FOUNDER</p><h2 id="founder-title">Nikola Pešić</h2><p>Independent project founder · Serbia</p></div></div>
+ <div class="founder-story"><h3>A real person behind the concept.</h3><p>I’m developing CLOSEFLOW AI to explore a more structured way for online fitness coaches to handle inbound enquiries, with their playbook and judgement at the centre.</p><p>Right now, I’m testing a local, rules-based prototype with fictional conversations. I’d like to understand your workflow before defining what a future product should offer. The AI product and live integrations are not available.</p><p class="founder-contact"><a href="mailto:nikolapesic878@gmail.com">Email Nikola ↗</a><a href={pageUrl('contact/')}>Contact and call details ↗</a></p><p class="founder-meta">CLOSEFLOW AI is a project name, not a registered company.</p></div>
+</section>
+<section id="call-details" class="container section call-details" aria-labelledby="call-title">
+ <div class="section-heading"><div><p class="eyebrow">YOUR FREE PRELAUNCH CALL</p><h2 id="call-title">A clearer picture.<br />Before any commitment.</h2></div><p>A conversation with Nikola about your coaching workflow and the proposed concept. You can ask questions and decide whether to stay in touch.</p></div>
+ <div class="call-topics">{topics.map(([n,title,text])=><article><span class="call-number">{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+ <div class="call-preparation"><div><h3>What to bring</h3><p>A brief description of your coaching offer and one or two questions about your enquiry process. No preparation document is needed. Please leave out private client messages, passwords and health information.</p></div><div><p class="call-format">15 minutes · Free · On Zoom</p><BookingLink /><p class="call-note">Choose a time on Calendly. Zoom details arrive with the booking confirmation. No payment, software access or live product demonstration is included. Calls are not recorded or transcribed by the operator.</p></div></div>
+</section>
+<style>
+ .founder-section{display:grid;grid-template-columns:1fr 1.15fr;gap:70px;align-items:center;border-top:1px solid var(--line)}
+ .founder-card{display:flex;gap:25px;align-items:center;padding:35px 28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#ff6b5b15,#14213d08)}
+ .founder-monogram{position:relative;display:grid;place-items:center;flex-shrink:0;width:100px;height:120px;border-radius:50px 50px 16px 16px;background:var(--color-navy);color:var(--color-cream);font-family:Georgia,serif;font-size:36px;letter-spacing:-2px}
+ .founder-monogram>span{position:absolute;right:-8px;bottom:10px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--color-coral);color:var(--color-navy);font-family:var(--font-sans);font-size:23px}
+ .founder-card .eyebrow{font-size:9px;margin-bottom:12px}.founder-card h2{font-size:30px;letter-spacing:-1px;margin-bottom:10px}.founder-card p:last-child{font-size:12px;color:var(--muted);margin:0}
+ .founder-story h3{font-size:22px;letter-spacing:-.6px;margin-bottom:16px}.founder-story>p{font-size:14px;color:var(--muted)}
+ .founder-contact{display:flex;flex-wrap:wrap;gap:8px 24px}.founder-contact a{display:inline-flex;align-items:center;min-height:44px;color:var(--color-navy);text-decoration:underline;text-underline-offset:5px;font-weight:600}.founder-story .founder-meta{font-size:12px;margin-bottom:0}
+ .call-details{padding-top:0}.call-topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.call-topics article{padding:26px;border:1px solid var(--line);border-radius:12px;background:var(--color-cream)}
+ .call-number{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--color-coral);font-size:11px;font-weight:700;margin-bottom:24px}.call-topics h3{font-size:20px;letter-spacing:-.4px;margin-bottom:12px}.call-topics p{font-size:14px;color:var(--muted);margin:0}
+ .call-preparation{display:grid;grid-template-columns:1fr 1fr;gap:65px;padding:32px;margin-top:24px;border-radius:14px;background:#14213d08}.call-preparation h3{font-size:19px;margin-bottom:12px}.call-preparation p{font-size:14px;color:var(--muted);margin-bottom:0}.call-preparation .call-format{color:var(--color-navy);font-weight:700;margin-bottom:16px}.call-preparation .call-note{font-size:12px;margin-top:16px;max-width:460px}
+ @media(max-width:1050px){.founder-section{gap:32px}.founder-card{padding:26px 20px;gap:20px}.founder-monogram{width:76px;height:100px;font-size:30px}.founder-card h2{font-size:26px}.call-preparation{gap:32px}}
+ @media(max-width:800px){.founder-section{grid-template-columns:1fr;gap:28px}.founder-card{max-width:470px}.call-topics{gap:14px}.call-topics article{padding:20px}.call-topics h3{font-size:18px}.call-topics p{font-size:13px}}
+ @media(max-width:540px){.call-topics,.call-preparation{grid-template-columns:1fr}.call-preparation{padding:24px;gap:26px}.call-topics article{padding:24px}.call-number{margin-bottom:18px}.call-topics p{font-size:14px}.founder-card h2{font-size:28px}.founder-story h3{font-size:21px}}
+</style>
