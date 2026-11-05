@@ -1,8 +1,8 @@
 ---
 import { demoUrl } from '../config';
-interface Props { small?: boolean; lime?: boolean }
-const { small = false, lime = false } = Astro.props;
+interface Props { small?: boolean; coral?: boolean }
+const { small = false, coral = false } = Astro.props;
 ---
-<a class:list={['button', {'button-small': small, 'button-lime': lime}]} href={demoUrl || '#early-access'} aria-label={demoUrl ? 'Book a free 15-minute prelaunch call on Calendly' : 'Learn about prelaunch calls'}>
+<a class:list={['button', {'button-small': small, 'button-coral': coral}]} href={demoUrl || '#early-access'} aria-label={demoUrl ? 'Book a free 15-minute prelaunch call on Calendly' : 'Learn about prelaunch calls'}>
  {small ? 'Book a free call' : 'Book a free 15-min call'} <span aria-hidden="true">↗</span>
 </a>
