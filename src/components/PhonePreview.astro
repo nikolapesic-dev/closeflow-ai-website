@@ -1,0 +1,67 @@
+---
+const principles = [
+  ['01', 'Your coaching voice', 'A proposed workflow shaped by your approved playbook.'],
+  ['02', 'Qualification preview', 'Fictional questions explore goals and coaching fit.'],
+  ['03', 'Human oversight', 'Sensitive questions and final decisions stay with a person.'],
+];
+---
+<figure class="phone-preview" aria-labelledby="phone-caption">
+ <div class="preview-heading"><span class="preview-kicker">A CONVERSATION WITH DIRECTION</span><span class="preview-star" aria-hidden="true">✳</span></div>
+ <div class="preview-scene">
+  <div class="phone">
+   <div class="phone-hardware" aria-hidden="true"><span>9:41</span><span class="phone-island"></span><span>▰</span></div>
+   <div class="phone-contact"><span class="phone-avatar" aria-hidden="true">JL</span><div><strong>Jordan Lee</strong><span>Fictional coaching enquiry</span></div><span class="contact-arrow" aria-hidden="true">↗</span></div>
+   <div class="phone-thread">
+    <p class="thread-label">SCRIPTED PREVIEW · NO LIVE CONNECTION</p>
+    <div class="phone-message incoming-message"><span>JORDAN · EXAMPLE MESSAGE</span><p>I’d like to get stronger, but I struggle to stay consistent.</p></div>
+    <div class="phone-message reply-message"><span>EXAMPLE REPLY</span><p>What does your training look like now, and what would you like to change?</p></div>
+    <div class="phone-message incoming-message"><span>JORDAN · EXAMPLE MESSAGE</span><p>I train twice a week. I’m looking for a plan and accountability.</p></div>
+    <div class="phone-handoff"><span aria-hidden="true">◎</span><p><strong>A thoughtful next step.</strong><span>Explore fit. Keep the coach involved.</span></p></div>
+   </div>
+   <div class="phone-home" aria-hidden="true"></div>
+  </div>
+  <div class="preview-principles" aria-label="Proposed design principles">
+   {principles.map(([number, title, text]) => <div class="preview-principle"><span class="principle-icon" aria-hidden="true">{number}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}
+  </div>
+ </div>
+ <figcaption id="phone-caption"><strong>Illustration of a proposed workflow.</strong> Scripted, fictional messages. No AI responses, account connection or booking automation.</figcaption>
+</figure>
+<style>
+ .phone-preview{margin:0;min-width:0;padding:25px 24px 22px;border-radius:24px;color:var(--color-cream);background:radial-gradient(ellipse at 90% 35%,#ff6b5b40,transparent 65%),linear-gradient(145deg,#14213D,#1c2c4b);border:1px solid #14213d26;box-shadow:0 26px 65px #14213d16;position:relative;overflow:hidden}
+ .phone-preview::before{content:"";position:absolute;width:340px;height:340px;right:-190px;top:75px;border:1px solid #f4ede018;border-radius:50%;pointer-events:none}
+ .preview-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;margin-bottom:24px}
+ .preview-kicker{font-size:9px;font-weight:700;letter-spacing:1.5px;line-height:1.6}
+ .preview-star{color:var(--color-coral);font-size:28px;line-height:1}
+ .preview-scene{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:17px;align-items:center;position:relative}
+ .phone{min-width:0;max-width:280px;width:100%;justify-self:center;background:var(--color-cream);color:var(--color-navy);border:6px solid #263756;outline:1px solid #f4ede039;border-radius:34px;box-shadow:0 20px 40px #0003;transform:rotate(-3deg);overflow:hidden}
+ .phone-hardware{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;font-size:9px;font-weight:700;gap:8px}
+ .phone-island{width:64px;height:14px;background:var(--color-navy);border-radius:20px}
+ .phone-contact{display:flex;align-items:center;gap:8px;padding:13px 12px;border-bottom:1px solid #14213d20}
+ .phone-avatar{display:grid;place-items:center;flex-shrink:0;width:29px;height:29px;background:var(--color-coral);border-radius:50%;font-size:9px;font-weight:700}
+ .phone-contact strong{display:block;font-size:11px;line-height:1.5}
+ .phone-contact div>span{display:block;font-size:8px;color:#45516a;line-height:1.5}
+ .contact-arrow{margin-left:auto;font-size:18px}
+ .phone-thread{padding:15px 11px 6px}
+ .thread-label{font-size:7px;letter-spacing:.6px;font-weight:700;text-align:center;color:#45516a;margin-bottom:14px;line-height:1.6}
+ .phone-message{padding:10px 11px;border-radius:0 12px 12px;margin:0 15px 12px 0;background:#14213d0a}
+ .phone-message>span{display:block;font-size:6px;font-weight:700;letter-spacing:.5px;margin-bottom:5px;line-height:1.5}
+ .phone-message p{font-size:11px;line-height:1.6;margin:0}
+ .reply-message{margin:0 0 12px 15px;background:var(--color-navy);color:var(--color-cream);border-radius:12px 0 12px 12px}
+ .reply-message>span{color:var(--color-coral)}
+ .phone-handoff{display:flex;gap:8px;align-items:center;border-top:1px solid #14213d20;padding:11px 1px 5px}
+ .phone-handoff>span{font-size:23px;line-height:1}
+ .phone-handoff p{margin:0;font-size:9px;line-height:1.5}
+ .phone-handoff strong,.phone-handoff p>span{display:block}
+ .phone-handoff p>span{font-size:8px;color:#45516a;margin-top:3px}
+ .phone-home{width:65px;height:3px;background:var(--color-navy);border-radius:10px;margin:12px auto 7px}
+ .preview-principles{display:grid;gap:13px}
+ .preview-principle{padding:14px 11px;border:1px solid #f4ede033;border-radius:12px;background:#14213db3;box-shadow:0 8px 18px #14213d16}
+ .principle-icon{display:grid;place-items:center;width:25px;height:25px;border-radius:7px;background:var(--color-coral);color:var(--color-navy);font-size:9px;font-weight:800;margin-bottom:10px}
+ .preview-principle h3{font-size:12px;line-height:1.4;margin:0 0 6px;letter-spacing:-.1px}
+ .preview-principle p{font-size:10px;line-height:1.6;margin:0;color:var(--color-cream)}
+ figcaption{position:relative;margin-top:28px;padding-top:16px;border-top:1px solid #f4ede033;font-size:10px;line-height:1.7;color:var(--color-cream)}
+ figcaption strong{display:block;font-weight:600}
+ @media(max-width:1050px) and (min-width:801px){.phone-preview{padding:20px 15px}.preview-scene{grid-template-columns:1fr;gap:22px}.phone{max-width:245px;transform:rotate(-2deg)}.preview-principles{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.preview-principle{padding:10px 7px}.preview-principle h3{font-size:10px}.preview-principle p{display:none}.principle-icon{margin-bottom:8px}.preview-heading{margin-bottom:20px}}
+ @media(max-width:800px){.phone-preview{width:100%;max-width:560px;justify-self:center}.phone{max-width:280px}.preview-principle h3{font-size:13px}.preview-principle p{font-size:11px}}
+ @media(max-width:540px){.phone-preview{padding:21px 19px;border-radius:20px}.preview-kicker{font-size:8px;letter-spacing:1.1px}.preview-scene{grid-template-columns:1fr;gap:26px}.phone{max-width:272px;transform:rotate(-2deg)}.preview-principles{gap:9px}.preview-principle{display:flex;align-items:flex-start;gap:12px;padding:13px}.principle-icon{flex-shrink:0;margin:0}.preview-principle h3{font-size:12px;margin-bottom:4px}.preview-principle p{font-size:11px}figcaption{font-size:11px;margin-top:18px}}
+</style>
